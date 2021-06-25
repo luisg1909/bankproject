@@ -28,7 +28,21 @@ export class TablesComponent implements OnInit {
           })
         }
 
+ Loguearse(){
 
+          this.servicio.navegar('login');
+      /*     
+          const jsonData={correo:Fcorreo,password:Fpass}
+          this.servicio.postLogin(jsonData).subscribe(msg=>{
+            console.log('la respuesta->',msg);
+            this.servicio.setearparametros(msg)
+            this.message('Bienvenido!','success')
+            this.router.navigate(['/listado']);
+      
+          },err=>{
+            this.message('credenciales incorrectas','error')
+          }) */
+  }
 
   ngOnInit() {
     this.cargar() 

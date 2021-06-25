@@ -4,6 +4,7 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { LoginComponent } from '../app/login/login.component';
 
 const routes: Routes =[
   {
@@ -21,7 +22,9 @@ const routes: Routes =[
   {
     path: '**',
     redirectTo: 'dashboard'
-  }
+  },
+  {path: 'login', component: LoginComponent},
+
 ];
 
 @NgModule({

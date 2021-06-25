@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import {FormControl,FormGroup, FormGroupDirective, NgForm, Validators,FormBuilder} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
@@ -6,13 +7,7 @@ import { Router } from '@angular/router';
 import {ServicesService} from '../../services/services.service';
 
 
-
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -23,97 +18,50 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router:Router,private fb: FormBuilder, private servicio:ServicesService) { }
+  constructor(private router:Router,private formBuilder: FormBuilder, private servicio:ServicesService) { }
+  Email=""
+  Password=""
 
   ngOnInit() {
 
         // cuerpopregunta: ['', [Validators.required, Validators.minLength(15), Validators.maxLength(2000)]]
 
-        this.loginform = this.fb.group({
-  
-          emailFormControl: ['', [Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
-          passFormControl: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(200)]]
-    
-        });
-    
-       this.salir()
-  }
+        this.myForm = new FormGroup({          
+          'name':new FormControl(null), //note, can have up to 3 Constructor Params: default value, validators, AsyncValidators
+          'email':new FormControl(null,Validators.email)
 
-
-  entrar() {
-
-    console.log('el mail es->',
-    this.loginform.controls['emailFormControl'].value);
-    console.log('el passFormControl es->',
-    this.loginform.controls['passFormControl'].value);
-
-
-    let name=this.loginform.controls['emailFormControl'].value
-    let passform=this.loginform.controls['passFormControl'].value
-    var esvalido=false
-
-    try {
-       esvalido=this.Login_test(name,passform)
-       this.Loguearse(name,passform);
-
+     })
       }
-     catch(e) {
-         console.log(e); 
-    }
-if (esvalido)this.login()
-// else  this.servicio.message("ocurrio un error al validar datos , revise usuario o correo ","error")
+
+
+
+
+      Loguearse() {
+
+    console.log('Email>'+this.Email)
+    console.log('Password>'+this.Password)
 
 
 
   }
-  matcher = new MyErrorStateMatcher();
 
 
   login(){
 
    }
-  loginform: FormGroup;
+   myForm:FormGroup;  
 
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"),
-  ]);
-  passFormControl = new FormControl('', [
-    Validators.required
-  ]);
-
-
-  validateEmail(email) {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-  }
   
 
-  Login_test(usuario,password) {
-    if(!usuario || ! password)    throw new Error('fallo registro')
-
-    if(usuario.length<1 || password.length<4)    throw new Error('fallo registro')
-
-  //  }
-
-
-   if(!this.validateEmail(usuario)){
-    throw new Error('fallo registro')
-    }  
-
-   return true
-
-  }
-  validodatos
-  Login_test_2(a:any,b:any){
-    return true
-  }
 salir(){
 
-  this.servicio.cerrarsesion()
+  // this.servicio.cerrarsesion()
 
 }
-  Loguearse(Fcorreo,Fpass){
+  Logearse(Fcorreo,Fpass){
+
+    this.router.navigate(['/listado']);
+/*     
     const jsonData={correo:Fcorreo,password:Fpass}
     this.servicio.postLogin(jsonData).subscribe(msg=>{
       console.log('la respuesta->',msg);
@@ -123,7 +71,7 @@ salir(){
 
     },err=>{
       this.message('credenciales incorrectas','error')
-    })
+    }) */
   }
 
   message(a,type) {

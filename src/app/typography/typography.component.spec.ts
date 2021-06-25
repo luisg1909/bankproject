@@ -2,6 +2,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
+import {MatCardModule} from "@angular/material/card";
 
 import { TypographyComponent } from './typography.component';
 
@@ -11,6 +12,12 @@ describe('TypographyComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+     
+        MatCardModule
+       
+
+       ],
       declarations: [ TypographyComponent ]
     })
     .compileComponents();

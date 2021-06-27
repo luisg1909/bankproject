@@ -22,6 +22,7 @@ import {MatIconModule} from "@angular/material/icon";
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatCardModule} from "@angular/material/card";
+import { PromediosComponent } from '../promedios/promedios.component';
 
 
 
@@ -47,7 +48,8 @@ import {MatCardModule} from "@angular/material/card";
   
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    PromediosComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

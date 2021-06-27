@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { youtube } from 'googleapis/build/src/apis/youtube';
 import {ServicesService} from '../../services/services.service';
 
 declare interface TableData {
@@ -16,18 +17,163 @@ export class TablesComponent implements OnInit {
     public tableData2: TableData;
 
   constructor(private servicio:ServicesService) { }
+  meses=[]
+  banks=[]
+  body=[]
 
   cargar() {
-  this.servicio.getDataget("https://reqres.in/api/users?page=2") .subscribe(data=>{
-        
-   
-    console.log('la data es->',data);
-    console.log('la data es->',JSON.stringify(data));
 
+  // this.servicio.getDataget("https://reqres.in/api/users?page=2") .subscribe(data=>{
+    //  this.servicio.getDataget("http://34.68.221.224/Reporte/datos") .subscribe(data=>{
       
-          })
+    var v=0
+
+    var k=0
+    var m=0
+		var data1 = require('./data.json'); // forward slashes will depend on the file location
+		// var data =  JSON.parse(localStorage.getItem('ram')); 
+ 	//   console.log('la data7 es->',data);
+   	// console.log('la data7 es->',JSON.stringify(data));
+     var data = data1.Bancos;
+    
+     if(data){
+      var years=[]
+
+      this.meses.push("Perfil Financiero");
+
+      var name;
+      var name1;
+      for (var i = 0; i < data.length; i++)
+      {
+  
+        
+      
+          var obj = data[i].Anio;
+
+          // console.log('obj es->',obj);
+          // console.log('mont1 es->',mont1);
+          // console.log('mont2 es->',mont1[0]);
+          var f  =obj[0]
+          if(v==0){
+          for (var key in f) {
+            if (f.hasOwnProperty(key)) {
+                console.log(key + " -> ESTE ES EL MES" );
+                years.push(key);
+                ++v;
+            }
         }
 
+     
+
+         }
+        }
+
+        console.log(' data[ 0].Anio 5 es->',JSON.stringify( data[ 0].Anio));
+
+            
+  
+             
+          for (var j = 0; j < 1;j++)
+          {
+            obj = data[j].Anio;
+              for (var i = 0; i < years.length; i++){
+
+                  var mont1 = obj[0][years[i]];
+  
+                  for (name in mont1[0]) {
+      
+                    // console.log('mont2 es->',name);
+                        this.meses.push(name);
+                    }
+  
+              }
+  
+  
+        } 
+
+          console.log('this.meses33 es->',JSON.stringify(this.meses));
+
+        
+        //   for (var j = 0; j < 1;j++)
+        //   {
+        //     obj = data[j].Anio;
+        //       for (var i = 0; i < years.length; i++){
+
+        //           var mont1 = obj[0][years[i]];
+  
+        //           for (name in mont1[0]) {
+      
+        //             // console.log('mont2 es->',name);
+        //                 this.meses.push(name);
+        //             }
+  
+        //       }
+  
+  
+        // } 
+
+
+  
+   
+    }
+        //   set data banks
+
+         k=0
+         m=0  
+          console.log('years es->',JSON.stringify(years));
+
+         if(data){
+          var name;
+          var name1;
+          // for (var i = 0; i < data.length; i++)
+
+          for (var i = 0; i < data.length ; i++)
+          {
+
+            // console.log('data.Bancos[i] e s->',data[i]);
+    
+            var row=[]
+
+              // console.log('Anio entro s->');
+              
+              var nombre = data[i].Nombre;
+              row.push(nombre);
+
+
+
+              var obj = data[i].Anio;
+    
+
+              for (var j = 0; j< years.length; j++){
+
+
+              var mont1 = obj[0][years[j]];
+                    // console.log(key + " -> " + p[key]);
+
+               var p= mont1[0];
+          
+              for (var key in p) {
+                if (p.hasOwnProperty(key)) {
+                    // console.log(key + " -> " + p[key]);
+                    row.push(p[key]);
+
+                }
+            }
+
+          }
+          console.log('row.body es->',row);
+
+          this.body.push(row);
+
+    
+          }   
+          console.log('this.body es->',this.body);
+          console.log('body es->',JSON.stringify(this.body));
+    
+        }
+
+   }
+  
  Loguearse(){
 
           this.servicio.navegar('login');
@@ -47,15 +193,8 @@ export class TablesComponent implements OnInit {
   ngOnInit() {
     this.cargar() 
       this.tableData1 = {
-          headerRow: [ 'ID', 'Name', 'Country', 'City', 'Salary'],
-          dataRows: [
-              ['1', 'Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],
-              ['2', 'Minerva Hooper', 'Curaçao', 'Sinaai-Waas', '$23,789'],
-              ['3', 'Sage Rodriguez', 'Netherlands', 'Baileux', '$56,142'],
-              ['4', 'Philip Chaney', 'Korea, South', 'Overland Park', '$38,735'],
-              ['5', 'Doris Greene', 'Malawi', 'Feldkirchen in Kärnten', '$63,542'],
-              ['6', 'Mason Porter', 'Chile', 'Gloucester', '$78,615']
-          ]
+          headerRow:this.meses,
+          dataRows:this.body
       };
       this.tableData2 = {
           headerRow: [ 'ID', 'Name',  'Salary', 'Country', 'City' ],

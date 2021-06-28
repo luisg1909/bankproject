@@ -41,12 +41,24 @@ export class LoginComponent implements OnInit {
     console.log('Email>'+this.Email)
     console.log('Password>'+this.Password)
 
+    // this.router.navigate(['/listado']);
+     
+    const jsonData={correo:this.Email,password:this.Password}
+    this.servicio.postLogin(jsonData).subscribe(msg=>{
+      console.log('la respuesta->',msg);
+      // this.servicio.setearparametros(msg)
+      // this.message('Bienvenido!','success')
+      // this.router.navigate(['/listado']);
 
+    },err=>{
+      this.message('credenciales incorrectas','error')
+    }) 
 
   }
 
 
   login(){
+      this.servicio.navegar('dashboard');
 
    }
    myForm:FormGroup;  
@@ -61,17 +73,17 @@ salir(){
   Logearse(Fcorreo,Fpass){
 
     this.router.navigate(['/listado']);
-/*     
+     
     const jsonData={correo:Fcorreo,password:Fpass}
     this.servicio.postLogin(jsonData).subscribe(msg=>{
       console.log('la respuesta->',msg);
-      this.servicio.setearparametros(msg)
-      this.message('Bienvenido!','success')
-      this.router.navigate(['/listado']);
+      // this.servicio.setearparametros(msg)
+      // this.message('Bienvenido!','success')
+      // this.router.navigate(['/listado']);
 
     },err=>{
       this.message('credenciales incorrectas','error')
-    }) */
+    }) 
   }
 
   message(a,type) {

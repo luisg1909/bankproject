@@ -1,3 +1,21 @@
+<h4>Promedio de Bancos del sistema</h4>
+<h2>Del ultimo año</h2>
+
+
+
+
+<div class="text-center">
+
+  <select class="form-control" (ngModelChange)="changedvalue()"  name="priority" [(ngModel)]="selectedbank"  required>
+    <option *ngFor="let list of priorityList" [value]="list.value">
+      {{list.label}}
+    </option>
+</select>
+
+<button type="button" (click)="Graficar()"  class="btn btn-success">Graficar</button>
+
+
+</div>
 
 <lbd-chart
 [title]="'Promedio de Ranking Bancario'"

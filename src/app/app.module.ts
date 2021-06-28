@@ -26,6 +26,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatCardModule} from "@angular/material/card";
 import { PromediosComponent } from '../promedios/promedios.component';
 import { CUSTOM_ELEMENTS_SCHEMA }      from '@angular/core';
+// import {Md5} from 'ts-md5/dist/md5';
 
 
 
@@ -46,7 +47,8 @@ import { CUSTOM_ELEMENTS_SCHEMA }      from '@angular/core';
     MaterialModule,
     MatInputModule,
     MatFormFieldModule,
-    MatCardModule
+    MatCardModule,
+    // Md5
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
 

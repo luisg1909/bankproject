@@ -2,10 +2,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl,FormGroup, FormGroupDirective, NgForm, Validators,FormBuilder} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
-import Swal from 'sweetalert2'
 import { Router } from '@angular/router';
 import {ServicesService} from '../../services/services.service';
 
+// import {Md5} from 'ts-md5/dist/md5';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -18,7 +18,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router:Router,private formBuilder: FormBuilder, private servicio:ServicesService) { }
+  constructor(
+    
+    // private MD5: Md5,
+
+    private router:Router,private formBuilder: FormBuilder, private servicio:ServicesService) { }
   Email=""
   Password=""
 
@@ -37,21 +41,44 @@ export class LoginComponent implements OnInit {
 
 
       Loguearse() {
+ var newpass="202cb962ac59075b964b07152d234b70"
+
+//  const md5 = new Md5();
+//  newpass=''+md5.appendStr(this.Password).end();
+ console.log('la newpass->',newpass);
+ newpass=this.Password
+
 
     console.log('Email>'+this.Email)
-    console.log('Password>'+this.Password)
+    console.log('Password>'+newpass)
 
-    // this.router.navigate(['/listado']);
+    // localStorage.setItem('user', this.Email);
+    // localStorage.setItem('user', this.Email);
+
+    // // this.router.navigate(['/listado']);
      
-    const jsonData={correo:this.Email,password:this.Password}
-    this.servicio.postLogin(jsonData).subscribe(msg=>{
+    // const jsonData={codigo:this.Email,password:this.Password}
+
+    // this.servicio.postLogin(jsonData)
+
+    // console.log('this.Email>999999'+this.Email+'999999')
+    // console.log('this.newpass>999999'+newpass+'999999')
+
+ const formData = new FormData();
+ formData.append('codigo', this.Email);
+ formData.append('password', newpass);
+
+//  formData.append('codigo', 'bases2');
+//  formData.append('password', 'abc');
+    this.servicio.postLogin(formData).subscribe(msg=>{
       console.log('la respuesta->',msg);
       // this.servicio.setearparametros(msg)
       // this.message('Bienvenido!','success')
       // this.router.navigate(['/listado']);
-
+   
+      //     formData.append('password', 'abc');
     },err=>{
-      this.message('credenciales incorrectas','error')
+      this.servicio.message('credenciales incorrectas','error')
     }) 
 
   }
@@ -72,30 +99,21 @@ salir(){
 }
   Logearse(Fcorreo,Fpass){
 
-    this.router.navigate(['/listado']);
+    // this.router.navigate(['/listado']);
      
-    const jsonData={correo:Fcorreo,password:Fpass}
-    this.servicio.postLogin(jsonData).subscribe(msg=>{
-      console.log('la respuesta->',msg);
-      // this.servicio.setearparametros(msg)
-      // this.message('Bienvenido!','success')
-      // this.router.navigate(['/listado']);
+    // const jsonData={correo:Fcorreo,password:Fpass}
+    // this.servicio.postLogin(jsonData).subscribe(msg=>{
+    //   console.log('la respuesta->',msg);
+    //   // this.servicio.setearparametros(msg)
+    //   // this.message('Bienvenido!','success')
+    //   // this.router.navigate(['/listado']);
 
-    },err=>{
-      this.message('credenciales incorrectas','error')
-    }) 
+    // },err=>{
+    //   this.servicio.message('credenciales incorrectas','error')
+    // }) 
   }
 
-  message(a,type) {
- 
 
-    Swal.fire({
-      title: 'Mensaje!',
-      text: a,
-      icon:type,
-      confirmButtonText: 'Cool'
-    })
-  }
 
 
 }

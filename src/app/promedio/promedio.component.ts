@@ -188,8 +188,18 @@ export class PromedioComponent implements OnInit {
 
   datageneral=[]
   yearsl=[]
-
   cargar(nameselected) {
+
+    // this.servicio.getDataget("http://34.68.221.224/Reporte/datos") .subscribe(data=>{
+    //   this.cargar1(nameselected,data)
+
+    // });
+
+    var data1 = require('./data.json'); // forward slashes will depend on the file location
+    this.cargar1(nameselected,data1)
+  }
+  visiblehide=false
+  cargar1(nameselected,data1) {
     var indexselected = Number(nameselected);
     var nemselected=  "Todos los Bancos"
 
@@ -200,7 +210,6 @@ export class PromedioComponent implements OnInit {
   
       var k=0
       var m=0
-      var data1 = require('./data.json'); // forward slashes will depend on the file location
       // var data =  JSON.parse(localStorage.getItem('ram')); 
      //   console.log('la data7 es->',data);
        // console.log('la data7 es->',JSON.stringify(data));
@@ -405,7 +414,7 @@ export class PromedioComponent implements OnInit {
                  if (nemselected==nombre) {
                   console.log( "ombre==this.selectedbank && y==false con nombre"+nombre );
                   this.body.push(row);
-        
+                   this.footer=JSON.stringify(row)
               } 
                else if(nemselected=="Todos los Bancos") {
                   console.log( "y==true"  );
@@ -421,25 +430,25 @@ export class PromedioComponent implements OnInit {
           }
 
          if(indexselected==0)   { 
-
+         this.visiblehide=true
          this.hoursChartLegendItems = [
-          { title: this.banks[0], imageClass: 'fa fa-circle text-info' },
-          { title:  this.banks[1], imageClass: 'fa fa-circle text-danger' },
-          { title:  this.banks[3], imageClass: 'fa fa-circle text-warning' },
-          { title:  this.banks[4], imageClass: 'fa fa-circle text-primary ' },
-          { title:  this.banks[5], imageClass: 'fa fa-circle text-success' },
-          { title: this.banks[6], imageClass: 'fa fa-circle text-primary ' },
-          { title:  this.banks[7], imageClass: 'fa fa-circle text-secondary' },
-          { title:  this.banks[8], imageClass: 'fa fa-circle text-danger' },
-          { title:  this.banks[9], imageClass: 'fa fa-circle text-dark' },
-          { title:  this.banks[10], imageClass: 'fa fa-circle text-danger' },
-          { title: this.banks[11], imageClass: 'fa fa-circle text-info' },
-          { title:  this.banks[12], imageClass: 'fa fa-circle text-danger' },
-          { title:  this.banks[13], imageClass: 'fa fa-circle text-primary' },
-          { title:  this.banks[14], imageClass: 'fa fa-circle text-primary' },
-          { title:  this.banks[15], imageClass: 'fa fa-circle text-primary' },
-          { title: this.banks[16], imageClass: 'fa fa-circle text-dark' },
-          { title:  this.banks[17], imageClass: 'fa fa-circle text-dark' }
+          { title: this.banks[0], imageClass: 'fa fa-circle uno' },
+          { title:  this.banks[1], imageClass: 'fa fa-circle dos' },
+          { title:  this.banks[3], imageClass: 'fa fa-circle tres' },
+          { title:  this.banks[4], imageClass: 'fa fa-circle t4' },
+          { title:  this.banks[5], imageClass: 'fa fa-circle t5' },
+          { title: this.banks[6], imageClass: 'fa fa-circle t6' },
+          { title:  this.banks[7], imageClass: 'fa fa-circle t7' },
+          { title:  this.banks[8], imageClass: 'fa fa-circle t8' },
+          { title:  this.banks[9], imageClass: 'fa fa-circle t9' },
+          { title:  this.banks[10], imageClass: 'fa fa-circle t10' },
+          { title: this.banks[11], imageClass: 'fa fa-circle t11' },
+          { title:  this.banks[12], imageClass: 'fa fa-circle t12' },
+          { title:  this.banks[13], imageClass: 'fa fa-circle t13' },
+          { title:  this.banks[14], imageClass: 'fa fa-circle t14' },
+          { title:  this.banks[15], imageClass: 'fa fa-circle t15' },
+          { title: this.banks[16], imageClass: 'fa fa-circle t16' },
+          { title:  this.banks[17], imageClass: 'fa fa-circle t17' }
       
         ];
 
@@ -454,7 +463,7 @@ export class PromedioComponent implements OnInit {
      meses=[]
      banks=[]
      body=[]
-
+  footer=""
      priorityList: Array<any> = [];
 
   vergrafico(){
@@ -480,7 +489,7 @@ export class PromedioComponent implements OnInit {
     showPoint: true,
   };
   this.hoursChartResponsive = [
-    ['screen and (max-width: 640px)', {
+    ['screen and (max-width: 940px)', {
       axisX: {
         labelInterpolationFnc: function (value) {
           return value[0];

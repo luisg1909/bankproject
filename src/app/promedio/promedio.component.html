@@ -6,7 +6,7 @@
 
 <div class="text-center">
 
-  <select class="form-control" (ngModelChange)="changedvalue()"  name="priority" [(ngModel)]="selectedbank"  required>
+  <select class="form-control" (ngModelChange)="changedvalue()"   name="selectedbank" [(ngModel)]="selectedbank"  required>
     <option *ngFor="let list of priorityList" [value]="list.value">
       {{list.label}}
     </option>
@@ -17,15 +17,46 @@
 
 </div>
 
-<lbd-chart
-[title]="'Promedio de Ranking Bancario'"
-[subtitle]="'24 Hours performance'"
-[chartType]="hoursChartType"
-[chartData]="hoursChartData"
-[chartOptions]="hoursChartOptions"
-[chartResponsive]="hoursChartResponsive"
-[legendItems]="hoursChartLegendItems"
-[withHr]="true"
-[footerIconClass]="'fa fa-history'"
-[footerText]="'Updated 3 minutes ago'">
-</lbd-chart>
+<div class="aline">
+
+  <lbd-chart
+  [title]="'Promedio de Ranking Bancario'"
+  [subtitle]="'en rango de Abril 2020 a Abril 2021'"
+  [chartType]="hoursChartType"
+  [chartData]="hoursChartData"
+  [chartOptions]="hoursChartOptions"
+  [chartResponsive]="hoursChartResponsive"
+  [legendItems]="hoursChartLegendItems"
+  [withHr]="true"
+  [footerIconClass]="'fa fa-history'"
+  [footerText]="">
+  </lbd-chart>
+  {{footer}}
+</div>
+
+
+
+
+
+<div class="container" *ngIf="visiblehide">
+  <h3>Bancos</h3>
+  <ul class="list-group">
+    <li class="list-group-item  uno">{{banks[0]}}</li>
+    <li class="list-group-item  dos">{{banks[1]}}</li>
+    <li class="list-group-item tres">{{banks[2]}}</li>
+    <li class="list-group-item t4">{{banks[3]}}</li>
+    <li class="list-group-item t5">{{banks[4]}}</li>
+    <li class="list-group-item t6">{{banks[5]}}</li>
+    <li class="list-group-item t7">{{banks[6]}}</li>
+    <li class="list-group-item t8">{{banks[7]}}</li>
+    <li class="list-group-item  t9">{{banks[8]}}</li>
+    <li class="list-group-item  t10">{{banks[9]}}</li>
+    <li class="list-group-item t11">{{banks[10]}}</li>
+    <li class="list-group-item t12">{{banks[11]}}</li>
+    <li class="list-group-item t13">{{banks[12]}}</li>
+    <li class="list-group-item t14">{{banks[13]}}</li>
+    <li class="list-group-item t15">{{banks[14]}}</li>
+    <li class="list-group-item t16">{{banks[15]}}</li>
+  </ul>
+  </div>
+  

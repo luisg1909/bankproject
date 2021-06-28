@@ -5,7 +5,6 @@ import {ErrorStateMatcher} from '@angular/material/core';
 import { Router } from '@angular/router';
 import {ServicesService} from '../../services/services.service';
 
-// import {Md5} from 'ts-md5/dist/md5';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -43,17 +42,16 @@ export class LoginComponent implements OnInit {
       Loguearse() {
  var newpass="202cb962ac59075b964b07152d234b70"
 
-//  const md5 = new Md5();
 //  newpass=''+md5.appendStr(this.Password).end();
- console.log('la newpass->',newpass);
  newpass=this.Password
 
 
     console.log('Email>'+this.Email)
     console.log('Password>'+newpass)
+    // console.log('la newpasshashStr->',hash);
+    newpass=this.servicio.tomd5(newpass)
 
-    // localStorage.setItem('user', this.Email);
-    // localStorage.setItem('user', this.Email);
+
 
     // // this.router.navigate(['/listado']);
      
@@ -68,10 +66,23 @@ export class LoginComponent implements OnInit {
  formData.append('codigo', this.Email);
  formData.append('password', newpass);
 
+
 //  formData.append('codigo', 'bases2');
 //  formData.append('password', 'abc');
-    this.servicio.postLogin(formData).subscribe(msg=>{
+    this.servicio.postForm(formData,'login').subscribe(msg=>{
       console.log('la respuesta->',msg);
+
+    try {
+      var a:any=msg
+      var message=a.resultado
+      console.log('message '+message+'999999')
+      if(message=="exito"){
+        this.servicio.message('Logueado correctamente','success')
+        this.Loguearseyredirigir(a)
+      }else   this.servicio.message('credenciales incorrectas','error')
+    } catch (error) {
+      
+    }
       // this.servicio.setearparametros(msg)
       // this.message('Bienvenido!','success')
       // this.router.navigate(['/listado']);
@@ -83,6 +94,12 @@ export class LoginComponent implements OnInit {
 
   }
 
+
+  Loguearseyredirigir(a){
+     localStorage.setItem('user', this.Email);
+    // localStorage.setItem('user', this.Email);
+
+ }
 
   login(){
       this.servicio.navegar('dashboard');

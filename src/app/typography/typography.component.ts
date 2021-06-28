@@ -14,14 +14,14 @@ import { Router } from '@angular/router';
 export class TypographyComponent implements OnInit {
 
  
-  constructor() { }
+  constructor( private servicio:ServicesService) { }
   codigo=""
  nombre=""
 
  password=""
  password2=""
 
- rol=""
+ rol="1"
  estado="1"
  fecha=""
 
@@ -33,11 +33,13 @@ export class TypographyComponent implements OnInit {
     var curr_date = d.getDate();
     var curr_month = d.getMonth();
     var curr_year = d.getFullYear()
-    var months = new Array("Jan", "Feb", "Mar",
-      "Apr", "May", "Jun", "Jul", "Aug", "Sep",
-      "Oct", "Nov", "Dec");  
-
-    var today = curr_date + "-" + months[curr_month] + "-" + curr_year   
+    // var months = new Array("Jan", "Feb", "Mar",
+    //   "Apr", "May", "Jun", "Jul", "Aug", "Sep",
+    //   "Oct", "Nov", "Dec");  
+      var months = new Array("01", "02", "03",
+      "04", "05", "06", "07", "08", "09",
+      "10", "11", "12"); 
+    var today = curr_year + "-" + months[curr_month] + "-" +   curr_date 
     this.fecha  ='' + today
   }
 
@@ -100,6 +102,39 @@ else {
   console.log('la Actualizar2->');
 
 
+
+
+
+
+   this.crear()
    }
+
+
+   crear(){   
+    var newpass=this.servicio.tomd5(this.password)
+
+
+ const formData = new FormData();
+ formData.append('codigo', this.codigo);
+ formData.append('password',newpass);
+ formData.append('nombre', this.nombre);
+ formData.append('estado', this.estado);
+ formData.append('fecha', this.fecha);
+ formData.append('rol', this.rol);
+
+ this.servicio.postForm(formData,'guardar_usuario').subscribe(msg=>{
+  console.log('la respuesta->',msg);
+  // this.servicio.setearparametros(msg)
+   this.servicio.message('Usuario creado!','success')
+  // this.router.navigate(['/listado']);
+
+  //     formData.append('password', 'abc');
+},err=>{
+  this.servicio.message('credenciales incorrectas','error')
+}) 
+
+
+
+  }
 
 }

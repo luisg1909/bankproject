@@ -25,6 +25,16 @@ export class ServicesService {
   }
 
 
+  tomd5(newpass){
+    const md5 = new Md5();
+    let hash = Md5.hashStr(newpass);
+
+    // return this.http.get(this.get_domain()+'/preguntas/'+id)
+     return hash
+ 
+   }
+ 
+
  
   navegar(id){
     // return this.http.get(this.get_domain()+'/preguntas/'+id)
@@ -69,7 +79,7 @@ export class ServicesService {
    }
 
 
-   postLogin(data){
+   postForm(data,value){
 
     // const httpOptions = {
     //   headers: new HttpHeaders({ 
@@ -78,7 +88,7 @@ export class ServicesService {
     //     'userid':'1'
     //   })
     // }
-     return this.http.post(this.get_domain()+'/login',data);
+     return this.http.post(this.get_domain()+'/'+value,data);
 
 
 

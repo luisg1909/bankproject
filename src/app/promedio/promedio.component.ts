@@ -488,12 +488,17 @@ export class PromedioComponent implements OnInit {
   };
   this.hoursChartOptions = {
     low: 0,
-    high: 19,
+    high: 20,
     showArea: false,
     height: '245px',
+
     axisX: {
       showGrid: true,
     },
+
+  axisY: {
+    onlyInteger: true,
+  },
     lineSmooth: Chartist.Interpolation.simple({
       divisor: 3
     }),

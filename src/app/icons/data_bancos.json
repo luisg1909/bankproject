@@ -1,0 +1,526 @@
+{
+    "Bancos": [
+        {
+            "Anio": [
+                {
+                    "2020": [
+                        {
+                            "ABRIL": "5",
+                            "AGOSTO": "5",
+                            "DICIEMBRE": "5",
+                            "JULIO": "5",
+                            "JUNIO": "5",
+                            "MAYO": "5",
+                            "NOVIEMBRE": "5",
+                            "OCTUBRE": "5",
+                            "SEPTIEMBRE": "5"
+                        }
+                    ],
+                    "2021": [
+                        {
+                            "ABRIL": "5",
+                            "ENERO": "5",
+                            "FEBRERO": "5",
+                            "MARZO": "5"
+                        }
+                    ]
+                }
+            ],
+            "Nombre": "Agromercantil De Guatemala, S. A.",
+            "_id": "banco1"
+        },
+        {
+            "Anio": [
+                {
+                    "2020": [
+                        {
+                            "ABRIL": "12",
+                            "AGOSTO": "12",
+                            "DICIEMBRE": "13",
+                            "JULIO": "12",
+                            "JUNIO": "12",
+                            "MAYO": "12",
+                            "NOVIEMBRE": "13",
+                            "OCTUBRE": "12",
+                            "SEPTIEMBRE": "12"
+                        }
+                    ],
+                    "2021": [
+                        {
+                            "ABRIL": "13",
+                            "ENERO": "13",
+                            "FEBRERO": "13",
+                            "MARZO": "13"
+                        }
+                    ]
+                }
+            ],
+            "Nombre": "AZTECA DE GUATEMALA, S. A.",
+            "_id": "banco2"
+        },
+        {
+            "Anio": [
+                {
+                    "2020": [
+                        {
+                            "ABRIL": "11",
+                            "AGOSTO": "10",
+                            "DICIEMBRE": "10",
+                            "JULIO": "10",
+                            "JUNIO": "10",
+                            "MAYO": "10",
+                            "NOVIEMBRE": "10",
+                            "OCTUBRE": "10",
+                            "SEPTIEMBRE": "10"
+                        }
+                    ],
+                    "2021": [
+                        {
+                            "ABRIL": "10",
+                            "ENERO": "10",
+                            "FEBRERO": "10",
+                            "MARZO": "10"
+                        }
+                    ]
+                }
+            ],
+            "Nombre": "CITIBANK, N.A., SUCURSAL GUATEMALA",
+            "_id": "banco3"
+        },
+        {
+            "Anio": [
+                {
+                    "2020": [
+                        {
+                            "ABRIL": "17",
+                            "AGOSTO": "17",
+                            "DICIEMBRE": "17",
+                            "JULIO": "17",
+                            "JUNIO": "17",
+                            "MAYO": "17",
+                            "NOVIEMBRE": "17",
+                            "OCTUBRE": "17",
+                            "SEPTIEMBRE": "17"
+                        }
+                    ],
+                    "2021": [
+                        {
+                            "ABRIL": "17",
+                            "ENERO": "17",
+                            "FEBRERO": "17",
+                            "MARZO": "17"
+                        }
+                    ]
+                }
+            ],
+            "Nombre": "CREDICORP, S. A.",
+            "_id": "banco4"
+        },
+        {
+            "Anio": [
+                {
+                    "2020": [
+                        {
+                            "ABRIL": "4",
+                            "AGOSTO": "4",
+                            "DICIEMBRE": "4",
+                            "JULIO": "4",
+                            "JUNIO": "4",
+                            "MAYO": "4",
+                            "NOVIEMBRE": "4",
+                            "OCTUBRE": "4",
+                            "SEPTIEMBRE": "4"
+                        }
+                    ],
+                    "2021": [
+                        {
+                            "ABRIL": "4",
+                            "ENERO": "4",
+                            "FEBRERO": "4",
+                            "MARZO": "4"
+                        }
+                    ]
+                }
+            ],
+            "Nombre": "DE AMÉRICA CENTRAL, S. A.",
+            "_id": "banco5"
+        },
+        {
+            "Anio": [
+                {
+                    "2020": [
+                        {
+                            "ABRIL": "14",
+                            "AGOSTO": "14",
+                            "DICIEMBRE": "14",
+                            "JULIO": "14",
+                            "JUNIO": "14",
+                            "MAYO": "14",
+                            "NOVIEMBRE": "14",
+                            "OCTUBRE": "14",
+                            "SEPTIEMBRE": "14"
+                        }
+                    ],
+                    "2021": [
+                        {
+                            "ABRIL": "14",
+                            "ENERO": "14",
+                            "FEBRERO": "14",
+                            "MARZO": "14"
+                        }
+                    ]
+                }
+            ],
+            "Nombre": "DE ANTIGUA, S. A.",
+            "_id": "banco6"
+        },
+        {
+            "Anio": [
+                {
+                    "2020": [
+                        {
+                            "ABRIL": "18",
+                            "AGOSTO": "18",
+                            "DICIEMBRE": "18",
+                            "JULIO": "18",
+                            "JUNIO": "18",
+                            "MAYO": "18",
+                            "NOVIEMBRE": "18",
+                            "OCTUBRE": "18",
+                            "SEPTIEMBRE": "18"
+                        }
+                    ],
+                    "2021": [
+                        {
+                            "ABRIL": "18",
+                            "ENERO": "18",
+                            "FEBRERO": "18",
+                            "MARZO": "18"
+                        }
+                    ]
+                }
+            ],
+            "Nombre": "DE CRÉDITO, S. A.",
+            "_id": "banco7"
+        },
+        {
+            "Anio": [
+                {
+                    "2020": [
+                        {
+                            "ABRIL": "2",
+                            "AGOSTO": "2",
+                            "DICIEMBRE": "2",
+                            "JULIO": "2",
+                            "JUNIO": "2",
+                            "MAYO": "2",
+                            "NOVIEMBRE": "2",
+                            "OCTUBRE": "2",
+                            "SEPTIEMBRE": "2"
+                        }
+                    ],
+                    "2021": [
+                        {
+                            "ABRIL": "2",
+                            "ENERO": "2",
+                            "FEBRERO": "2",
+                            "MARZO": "2"
+                        }
+                    ]
+                }
+            ],
+            "Nombre": "DE DESARROLLO RURAL, S. A.",
+            "_id": "banco8"
+        },
+        {
+            "Anio": [
+                {
+                    "2020": [
+                        {
+                            "ABRIL": "6",
+                            "AGOSTO": "6",
+                            "DICIEMBRE": "6",
+                            "JULIO": "6",
+                            "JUNIO": "6",
+                            "MAYO": "6",
+                            "NOVIEMBRE": "6",
+                            "OCTUBRE": "6",
+                            "SEPTIEMBRE": "6"
+                        }
+                    ],
+                    "2021": [
+                        {
+                            "ABRIL": "6",
+                            "ENERO": "6",
+                            "FEBRERO": "6",
+                            "MARZO": "6"
+                        }
+                    ]
+                }
+            ],
+            "Nombre": "DE LOS TRABAJADORES",
+            "_id": "banco9"
+        },
+        {
+            "Anio": [
+                {
+                    "2020": [
+                        {
+                            "ABRIL": "9",
+                            "AGOSTO": "9",
+                            "DICIEMBRE": "9",
+                            "JULIO": "9",
+                            "JUNIO": "9",
+                            "MAYO": "9",
+                            "NOVIEMBRE": "9",
+                            "OCTUBRE": "9",
+                            "SEPTIEMBRE": "9"
+                        }
+                    ],
+                    "2021": [
+                        {
+                            "ABRIL": "9",
+                            "ENERO": "9",
+                            "FEBRERO": "9",
+                            "MARZO": "9"
+                        }
+                    ]
+                }
+            ],
+            "Nombre": "EL CRÉDITO HIPOTECARIO NACIONAL DE GUATEMALA",
+            "_id": "banco10"
+        },
+        {
+            "Anio": [
+                {
+                    "2020": [
+                        {
+                            "ABRIL": "10",
+                            "AGOSTO": "11",
+                            "DICIEMBRE": "11",
+                            "JULIO": "11",
+                            "JUNIO": "11",
+                            "MAYO": "11",
+                            "NOVIEMBRE": "11",
+                            "OCTUBRE": "11",
+                            "SEPTIEMBRE": "11"
+                        }
+                    ],
+                    "2021": [
+                        {
+                            "ABRIL": "11",
+                            "ENERO": "11",
+                            "FEBRERO": "11",
+                            "MARZO": "11"
+                        }
+                    ]
+                }
+            ],
+            "Nombre": "FICOHSA GUATEMALA, S. A.",
+            "_id": "banco11"
+        },
+        {
+            "Anio": [
+                {
+                    "2020": [
+                        {
+                            "ABRIL": "3",
+                            "AGOSTO": "3",
+                            "DICIEMBRE": "3",
+                            "JULIO": "3",
+                            "JUNIO": "3",
+                            "MAYO": "3",
+                            "NOVIEMBRE": "3",
+                            "OCTUBRE": "3",
+                            "SEPTIEMBRE": "3"
+                        }
+                    ],
+                    "2021": [
+                        {
+                            "ABRIL": "3",
+                            "ENERO": "3",
+                            "FEBRERO": "3",
+                            "MARZO": "3"
+                        }
+                    ]
+                }
+            ],
+            "Nombre": "G&T CONTINENTAL, S. A.",
+            "_id": "banco12"
+        },
+        {
+            "Anio": [
+                {
+                    "2020": [
+                        {
+                            "ABRIL": "1",
+                            "AGOSTO": "1",
+                            "DICIEMBRE": "1",
+                            "JULIO": "1",
+                            "JUNIO": "1",
+                            "MAYO": "1",
+                            "NOVIEMBRE": "1",
+                            "OCTUBRE": "1",
+                            "SEPTIEMBRE": "1"
+                        }
+                    ],
+                    "2021": [
+                        {
+                            "ABRIL": "1",
+                            "ENERO": "1",
+                            "FEBRERO": "1",
+                            "MARZO": "1"
+                        }
+                    ]
+                }
+            ],
+            "Nombre": "INDUSTRIAL, S. A.",
+            "_id": "banco13"
+        },
+        {
+            "Anio": [
+                {
+                    "2020": [
+                        {
+                            "ABRIL": "13",
+                            "AGOSTO": "13",
+                            "DICIEMBRE": "12",
+                            "JULIO": "13",
+                            "JUNIO": "13",
+                            "MAYO": "13",
+                            "NOVIEMBRE": "12",
+                            "OCTUBRE": "13",
+                            "SEPTIEMBRE": "13"
+                        }
+                    ],
+                    "2021": [
+                        {
+                            "ABRIL": "12",
+                            "ENERO": "12",
+                            "FEBRERO": "12",
+                            "MARZO": "12"
+                        }
+                    ]
+                }
+            ],
+            "Nombre": "INMOBILIARIO, S. A.",
+            "_id": "banco14"
+        },
+        {
+            "Anio": [
+                {
+                    "2020": [
+                        {
+                            "ABRIL": "8",
+                            "AGOSTO": "8",
+                            "DICIEMBRE": "8",
+                            "JULIO": "8",
+                            "JUNIO": "8",
+                            "MAYO": "8",
+                            "NOVIEMBRE": "8",
+                            "OCTUBRE": "8",
+                            "SEPTIEMBRE": "8"
+                        }
+                    ],
+                    "2021": [
+                        {
+                            "ABRIL": "8",
+                            "ENERO": "8",
+                            "FEBRERO": "8",
+                            "MARZO": "8"
+                        }
+                    ]
+                }
+            ],
+            "Nombre": "INTERNACIONAL, S. A.",
+            "_id": "banco15"
+        },
+        {
+            "Anio": [
+                {
+                    "2020": [
+                        {
+                            "ABRIL": "15",
+                            "AGOSTO": "15",
+                            "DICIEMBRE": "15",
+                            "JULIO": "15",
+                            "JUNIO": "15",
+                            "MAYO": "15",
+                            "NOVIEMBRE": "15",
+                            "OCTUBRE": "15",
+                            "SEPTIEMBRE": "15"
+                        }
+                    ],
+                    "2021": [
+                        {
+                            "ABRIL": "15",
+                            "ENERO": "15",
+                            "FEBRERO": "15",
+                            "MARZO": "15"
+                        }
+                    ]
+                }
+            ],
+            "Nombre": "INV, S. A.",
+            "_id": "banco16"
+        },
+        {
+            "Anio": [
+                {
+                    "2020": [
+                        {
+                            "ABRIL": "7",
+                            "AGOSTO": "7",
+                            "DICIEMBRE": "7",
+                            "JULIO": "7",
+                            "JUNIO": "7",
+                            "MAYO": "7",
+                            "NOVIEMBRE": "7",
+                            "OCTUBRE": "7",
+                            "SEPTIEMBRE": "7"
+                        }
+                    ],
+                    "2021": [
+                        {
+                            "ABRIL": "7",
+                            "ENERO": "7",
+                            "FEBRERO": "7",
+                            "MARZO": "7"
+                        }
+                    ]
+                }
+            ],
+            "Nombre": "PROMERICA, S. A.",
+            "_id": "banco17"
+        },
+        {
+            "Anio": [
+                {
+                    "2020": [
+                        {
+                            "ABRIL": "16",
+                            "AGOSTO": "16",
+                            "DICIEMBRE": "16",
+                            "JULIO": "16",
+                            "JUNIO": "16",
+                            "MAYO": "16",
+                            "NOVIEMBRE": "16",
+                            "OCTUBRE": "16",
+                            "SEPTIEMBRE": "16"
+                        }
+                    ],
+                    "2021": [
+                        {
+                            "ABRIL": "16",
+                            "ENERO": "16",
+                            "FEBRERO": "16",
+                            "MARZO": "16"
+                        }
+                    ]
+                }
+            ],
+            "Nombre": "VIVIBANCO, S. A.",
+            "_id": "banco18"
+        }
+    ]
+}

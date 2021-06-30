@@ -26,8 +26,10 @@ export class TablesComponent implements OnInit {
     //   this.cargar1(data)
 
     // });
+    
+    var data1 = require('./data_bancos.json'); // forward slashes will depend on the file location
 
-    var data1 = require('./data.json'); // forward slashes will depend on the file location
+    // var data1 = require('./data.json'); // forward slashes will depend on the file location
     this.cargar1(data1)
   }
   cargar1(data1) {

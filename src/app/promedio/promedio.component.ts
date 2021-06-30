@@ -204,7 +204,10 @@ export class PromedioComponent implements OnInit {
 
     // });
 
-    var data1 = require('./data.json'); // forward slashes will depend on the file location
+    // var data1 = require('./data.json'); // forward slashes will depend on the file location
+    
+    var data1 = require('./data_bancos.json'); // forward slashes will depend on the file location
+
     this.cargar1(nameselected,data1)
   }
   visiblehide=false
@@ -220,7 +223,7 @@ export class PromedioComponent implements OnInit {
       var k=0
       var m=0
       // var data =  JSON.parse(localStorage.getItem('ram')); 
-     //   console.log('la data7 es->',data);
+      console.log('la data7 es->',data1);
        // console.log('la data7 es->',JSON.stringify(data));
        var data = data1.Bancos;
        this. datageneral=data
@@ -485,7 +488,7 @@ export class PromedioComponent implements OnInit {
   };
   this.hoursChartOptions = {
     low: 0,
-    high: 110000000,
+    high: 19,
     showArea: false,
     height: '245px',
     axisX: {

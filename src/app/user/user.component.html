@@ -12,7 +12,7 @@
                                 <div class="col-md-5">
                                     <div class="form-group">
                                         <label>Nombre</label>
-                                        <input type="text" class="form-control" name="nombre"  [(ngModel)]="nombre" placeholder="Nombre" value={{nombre}}>
+                                        <input type="text" class="form-control" name="nombreusuario"  [(ngModel)]="nombreusuario" placeholder="Nombre" value={{nombreusuario}}>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -58,7 +58,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Fecha</label>
-                                        <input type="text"   name="fecha" disabled [(ngModel)]="fecha"  class="form-control" placeholder="fecha" value={{fecha}}>
+                                        <input type="text"   name="fecharegistro" disabled [(ngModel)]="fecharegistro"  class="form-control" placeholder="fecharegistro" value={{fecharegistro}}>
                                     </div>
                                 </div>
                              
@@ -83,11 +83,14 @@
 
                                 <h4 class="title">{{nombre}}<br />
                                     <small>{{username}}</small>
+                                    <button (click)="baja()"  class="btn btn-danger btn-fill pull-right">Dar de baja</button>
+
                                 </h4>
                             </a>
                         </div>
                         <p class="description text-center"> "Usuario del portal"
                         </p>
+
                     </div>
                     <hr>
                     <div class="text-center">

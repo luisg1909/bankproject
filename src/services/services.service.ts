@@ -18,11 +18,6 @@ export class ServicesService {
 
   }
 
-  getDataget(id){
-   // return this.http.get(this.get_domain()+'/preguntas/'+id)
-    return this.http.get(id)
-
-  }
 
 
   tomd5(newpass){
@@ -65,6 +60,7 @@ export class ServicesService {
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
   }
+
   this.router.onSameUrlNavigation = 'reload';
    
 
@@ -78,7 +74,32 @@ export class ServicesService {
 
    }
 
+   navegarwithparamas2(id,param,param2){
+    console.log('navegarwithparamase s->');
 
+   
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+  }
+
+  this.router.onSameUrlNavigation = 'reload';
+   
+
+    this.router.navigate(['/'+id], { state: { example: param, example2: param2} });
+
+
+    // this.router.navigate(['/'+id]);
+
+   
+
+   }
+
+   
+  getDataget(id){
+    // return this.http.get(this.get_domain()+'/preguntas/'+id)
+     return this.http.get(this.get_domain()+'/'+id)
+ 
+   }
    postForm(data,value){
 
     // const httpOptions = {

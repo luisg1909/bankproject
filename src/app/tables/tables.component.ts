@@ -20,8 +20,17 @@ export class TablesComponent implements OnInit {
   meses=[]
   banks=[]
   body=[]
-
   cargar() {
+
+    // this.servicio.getDataget("datos") .subscribe(data=>{
+    //   this.cargar1(data)
+
+    // });
+
+    var data1 = require('./data.json'); // forward slashes will depend on the file location
+    this.cargar1(data1)
+  }
+  cargar1(data1) {
 
   // this.servicio.getDataget("https://reqres.in/api/users?page=2") .subscribe(data=>{
     //  this.servicio.getDataget("http://34.68.221.224/Reporte/datos") .subscribe(data=>{
@@ -30,7 +39,6 @@ export class TablesComponent implements OnInit {
 
     var k=0
     var m=0
-		var data1 = require('./data.json'); // forward slashes will depend on the file location
 		// var data =  JSON.parse(localStorage.getItem('ram')); 
  	//   console.log('la data7 es->',data);
    	// console.log('la data7 es->',JSON.stringify(data));
@@ -173,7 +181,16 @@ export class TablesComponent implements OnInit {
         }
 
    }
-  
+   islogged() {
+    var code= localStorage.getItem('user');
+    console.log('la code->',code);
+
+    if(code==null || code.length==0)  {   
+      this.servicio.navegarwithparamas2('dashboard',"","0");
+
+    return 
+    }
+   }
  Loguearse(){
 
           this.servicio.navegar('login');
@@ -191,6 +208,7 @@ export class TablesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.  islogged()
     this.cargar() 
       this.tableData1 = {
           headerRow:this.meses,

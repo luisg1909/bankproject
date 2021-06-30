@@ -28,7 +28,7 @@ export class TypographyComponent implements OnInit {
  errorpassworda=""
  visiblehide=false
   ngOnInit() {
-
+   this.islogged()
     var d = new Date();
     var curr_date = d.getDate();
     var curr_month = d.getMonth();
@@ -109,7 +109,16 @@ else {
    this.crear()
    }
 
+   islogged() {
+    var code= localStorage.getItem('user');
+    console.log('la code->',code);
 
+    if(code==null || code.length==0)  {   
+      this.servicio.navegarwithparamas2('dashboard',"","0");
+
+    return 
+    }
+   }
    crear(){   
     var newpass=this.servicio.tomd5(this.password)
 
@@ -130,7 +139,7 @@ else {
 
   //     formData.append('password', 'abc');
 },err=>{
-  this.servicio.message('credenciales incorrectas','error')
+  this.servicio.message('hubo un error contactando al server','error')
 }) 
 
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ServicesService} from '../../services/services.service';
 
 @Component({
   selector: 'app-user',
@@ -7,31 +8,61 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
+  constructor( private servicio:ServicesService) { }
   codigo=""
- nombre=""
+  nombreusuario=""
 
  password=""
  password2=""
 
- rol=""
+ rol="1"
  estado="0"
- fecha=""
+ fecharegistro=""
 
  errorpassworda=""
  visiblehide=false
   ngOnInit() {
-   this.codigo= localStorage.getItem('user');
-   this.nombre= localStorage.getItem('nombre');
+    this.  islogged() 
+   this.codigo= localStorage.getItem('codigo');
+   this.nombreusuario= localStorage.getItem('nombreusuario');
    this.estado= localStorage.getItem('estado');
    this.password= localStorage.getItem('password');
    this.rol= localStorage.getItem('rol');
-   this.fecha= localStorage.getItem('fecha');
+   this.fecharegistro= localStorage.getItem('fecharegistro');
 
 
+        
   }
+  baja(){const formData = new FormData();
+    formData.append('codigo', this.codigo);
+    this.servicio.postForm(formData,'eliminar_usuario').subscribe(msg=>{
+      console.log('la respuesta->',msg);
+      // this.servicio.setearparametros(msg)
+       this.servicio.message('Usuario eliminado!','success')
+      // this.router.navigate(['/listado']);
+      localStorage.clear();     
+        // this.servicio.navegarwithparamas2('dashboard',"","0");
 
+      //     formData.append('password', 'abc');
+    },err=>{
+      this.servicio.message('hubo un error contactando al server','error')
+    }) 
+    
+   }
+  islogged() {
+    var code= localStorage.getItem('user');
+    console.log('la code->',code);
 
+    if(code==null || code.length==0)  {   
+      console.log('la code2->',code);
+
+      this.servicio.navegarwithparamas2('dashboard',"","0");
+
+    return 
+    }
+    console.log('la code3->',code);
+
+   }
   Actualizar(){
     console.log('la Actualizar->');
     if(this.password.length==0)  {   
@@ -66,7 +97,7 @@ else {
 }
 
 
-if(this.nombre.length==0)  {   
+if(this.nombreusuario.length==0)  {   
   this.visiblehide=true
   this.errorpassworda="El nombre debe ir no en blanco"
 return 
@@ -88,7 +119,37 @@ else {
 }
   console.log('la Actualizar2->');
 
+this.editar()
+   
 
-   }
+}
+
+
+   editar(){   
+    var newpass=this.servicio.tomd5(this.password)
+
+ const formData = new FormData();
+ formData.append('user', this.codigo);
+ formData.append('codigo', this.codigo);
+ formData.append('password',newpass);
+ formData.append('nombre', this.nombreusuario);
+ formData.append('estado', this.estado);
+ formData.append('fecha', this.fecharegistro);
+ formData.append('rol', this.rol);
+
+ this.servicio.postForm(formData,'actualizar_usuario').subscribe(msg=>{
+  console.log('la respuesta->',msg);
+  // this.servicio.setearparametros(msg)
+   this.servicio.message('Usuario actualizado!','success')
+  // this.router.navigate(['/listado']);
+
+  //     formData.append('password', 'abc');
+},err=>{
+  this.servicio.message('hubo un error contactando al server','error')
+}) 
+
+
+
+  }
 
 }

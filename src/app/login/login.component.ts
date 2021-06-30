@@ -77,8 +77,9 @@ export class LoginComponent implements OnInit {
       var message=a.resultado
       console.log('message '+message+'999999')
       if(message=="exito"){
-        this.servicio.message('Logueado correctamente','success')
-        this.Loguearseyredirigir(a)
+        this.Loguearseyredirigir()
+
+        // this.servicio.message('Logueado correctamente','success')
       }else   this.servicio.message('credenciales incorrectas','error')
     } catch (error) {
       
@@ -89,15 +90,50 @@ export class LoginComponent implements OnInit {
    
       //     formData.append('password', 'abc');
     },err=>{
-      this.servicio.message('credenciales incorrectas','error')
+      this.servicio.message('hubo un error contactando al server','error')
     }) 
+
 
   }
 
 
-  Loguearseyredirigir(a){
-     localStorage.setItem('user', this.Email);
+  Loguearseyredirigir(){
+     
+     const formData = new FormData();
+     formData.append('codigo', this.Email);
+
+     this.servicio.postForm(formData,'obtener_usuario').subscribe(msg=>{
+      console.log('la respuestaLoguearseyredirigir->',msg);
+     var a:any=msg
+
+      console.log('la codigo->',a.codigo);
+      console.log('la estado->',a.estado);
+      console.log('la codigo->',a.fecharegistro);
+      console.log('la codigo->',a.codigo);
+
+
+
+      localStorage.setItem('codigo', a.codigo);
+      localStorage.setItem('estado', a.estado);
+      localStorage.setItem('fecharegistro', a.fecharegistro);
+      localStorage.setItem('nombreusuario', a.nombreusuario);
+      localStorage.setItem('password', a.password);
+      localStorage.setItem('rol', a.rol);
+      localStorage.setItem('user', this.Email);
+
+    },err=>{
+      console.log('hubo un error contactando al serverobtener_usuario')
+    }) 
+
+
+
+    // this.servicio.getDataget("datos") .subscribe(data=>{
+      
+
+    // });
+
     // localStorage.setItem('user', this.Email);
+    this.servicio.navegarwithparamas2('dashboard',this.Email,"1");
 
  }
 

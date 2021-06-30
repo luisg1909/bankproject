@@ -2,12 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 import { LegendItem, ChartType } from '../lbd/lbd-chart/lbd-chart.component';
 import * as Chartist from 'chartist';
+import { Router } from '@angular/router';
+import { VariableAst } from '@angular/compiler';
+import { ActivatedRoute } from '@angular/router';
+import {ServicesService} from '../../services/services.service';
+
+declare var $:any;
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
+
 export class HomeComponent implements OnInit {
     public emailChartType: ChartType;
     public emailChartData: any;
@@ -24,8 +32,76 @@ export class HomeComponent implements OnInit {
     public activityChartOptions: any;
     public activityChartResponsive: any[];
     public activityChartLegendItems: LegendItem[];
-  constructor() { }
+  constructor(private router:Router, private servicio:ServicesService,private route: ActivatedRoute) {
+    const navigation = this.router.getCurrentNavigation();
 
+
+    var state 
+
+   try {
+    var ar= this.route.params.subscribe(params => {
+      // this.id = +params['id']; // (+) converts string 'id' to a number
+      // console.log( "param1 es"+params);
+      // console.log( "param1 es"+JSON.stringify(params));
+      console.log( "param1 es"+params.id);
+      if(params.id== "4"){
+        this.servicio.salir()
+        this.showNotification('top','center','Cerro sesion correctamente!')
+
+      }
+      // In a real app: dispatch action to load the details here.
+   });
+   } catch (error) {
+     
+   }
+
+    try {
+
+      state = navigation.extras.state as {
+        example: string,
+        example2: string
+  
+      };
+
+      
+      if(state.example2== "1"){
+        var user= localStorage.getItem('user');
+        var m1="Bienvenido al sistema <b>  "+user+ "</b> !"
+        this.showNotification('top','center',m1)
+      }else{
+
+        if(state.example2== "0"){
+        var m1="Debe estar logueado para usar el sistema"
+        console.log( "param1 es"+state.example );
+        this.showNotification('top','center',m1)
+        }
+      }
+     
+
+     }
+     catch (error) {
+    }
+
+   }
+
+  showNotification(from, align,message1){
+   
+
+    const type = ['','info','success','warning','danger'];
+
+    var color = Math.floor((Math.random() * 4) + 1);
+    $.notify({
+        icon: "pe-7s-gift",
+        message: message1
+    },{
+        type: type[color],
+        timer: 1000,
+        placement: {
+            from: from,
+            align: align
+        }
+    });
+}
   ngOnInit() {
       this.emailChartType = ChartType.Pie;
       this.emailChartData = {

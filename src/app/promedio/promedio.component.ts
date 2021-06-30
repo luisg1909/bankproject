@@ -78,7 +78,16 @@ export class PromedioComponent implements OnInit {
   }
 
 
+  islogged() {
+    var code= localStorage.getItem('user');
+    console.log('la code->',code);
 
+    if(code==null || code.length==0)  {   
+      this.servicio.navegarwithparamas2('dashboard',"","0");
+
+    return 
+    }
+   }
   Graficar(){
     console.log(' selectedbank es->',this.selectedbank);
     this.servicio.navegarwithparamas('promedio',this.selectedbank);
@@ -190,7 +199,7 @@ export class PromedioComponent implements OnInit {
   yearsl=[]
   cargar(nameselected) {
 
-    // this.servicio.getDataget("http://34.68.221.224/Reporte/datos") .subscribe(data=>{
+    // this.servicio.getDataget("datos") .subscribe(data=>{
     //   this.cargar1(nameselected,data)
 
     // });
@@ -501,7 +510,7 @@ export class PromedioComponent implements OnInit {
 }
 
   ngOnInit(): void {
- 
+   this.islogged() 
   }
 
 }

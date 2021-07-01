@@ -16,8 +16,8 @@ export const ROUTES: RouteInfo[] = [
 
     
     { path: '/login', title: 'login',  icon:'pe-7s-news-paper', class: '' },
-    { path: '/icons', title: 'Montos periodo',  icon:'pe-7s-science', class: '' },
-    { path: '/maps', title: 'Promedios',  icon:'pe-7s-map-marker', class: '' },
+    // { path: '/icons', title: 'Montos periodo',  icon:'pe-7s-science', class: '' },
+    // { path: '/maps', title: 'Promedios',  icon:'pe-7s-map-marker', class: '' },
     { path: '/notifications', title: 'Notifications',  icon:'pe-7s-bell', class: '' },
     { path: '/upgrade', title: 'Crud Banca',  icon:'pe-7s-diskette', class: 'active-pro' },
 ];

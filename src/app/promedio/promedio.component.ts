@@ -426,7 +426,18 @@ export class PromedioComponent implements OnInit {
                  if (nemselected==nombre) {
                   console.log( "ombre==this.selectedbank && y==false con nombre"+nombre );
                   this.body.push(row);
-                   this.footer=JSON.stringify(row)
+                    this.footer=row
+
+
+                  //  let text = ""
+                  //  for (let x in row) {
+                  //    text += "<tr><td>" + row[x] + "</td></tr>";
+                  //  }
+                 
+                  //  this.footer=text
+
+
+
               } 
                else if(nemselected=="Todos los Bancos") {
                   console.log( "y==true"  );
@@ -475,7 +486,7 @@ export class PromedioComponent implements OnInit {
      meses=[]
      banks=[]
      body=[]
-  footer=""
+  footer: any = []
      priorityList: Array<any> = [];
 
   vergrafico(){

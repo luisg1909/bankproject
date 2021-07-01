@@ -46,7 +46,7 @@
   [footerIconClass]="'fa fa-history'"
   [footerText]="">
   </lbd-chart>
-  {{footer}}
+
 </div>
 
 
@@ -75,3 +75,22 @@
   </ul>
   </div>
   
+
+
+
+  
+
+<table class="table">
+ 
+  <tbody>
+    <tr  >
+
+      <td *ngFor="let group of footer">
+        {{group}}
+    </td>
+      
+    
+    </tr>
+    
+  </tbody>
+</table>

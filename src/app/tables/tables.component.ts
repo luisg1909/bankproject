@@ -22,15 +22,14 @@ export class TablesComponent implements OnInit {
   body=[]
   cargar() {
 
-    // this.servicio.getDataget("datos") .subscribe(data=>{
-    //   this.cargar1(data)
+    this.servicio.getDataget("datos") .subscribe(data=>{
+      this.cargar1(data)
 
-    // });
+    });
     
-    var data1 = require('./data_bancos.json'); // forward slashes will depend on the file location
+    // var data1 = require('./data_bancos.json'); // forward slashes will depend on the file location
 
-    // var data1 = require('./data.json'); // forward slashes will depend on the file location
-    this.cargar1(data1)
+    // this.cargar1(data1)
   }
   cargar1(data1) {
 
